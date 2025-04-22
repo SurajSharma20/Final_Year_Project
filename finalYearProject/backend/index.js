@@ -5,6 +5,7 @@ const dbConnection = require("../backend/src/config/db");
 const cors = require("cors");
 const socketIO = require("socket.io");
 const userRoutes = require("./src/routes/authRoutes");
+const messageRoutes = require("./src/routes/messageRoutes")
 
 var corsOptions = {
     origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://13.233.18.35", "http://extension.optiinvest.in", "https://extension.optiinvest.in"],
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use("/api", userRoutes);
+app.use("/api" , messageRoutes)
 
 const port = process.env.PORT;
 app.listen(port, () => {
